@@ -1,6 +1,6 @@
 [template]
-src = "hazelcast.xml"
-dest = "/etc/hazelcast/hazelcast.xml.tmpl"
+src = "hazelcast.xml.tmpl"
+dest = "/etc/hazelcast/hazelcast.xml"
 prefix = "/2016-07-29"
 keys = [
     "/self/service/containers",
