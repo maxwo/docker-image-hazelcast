@@ -2,6 +2,7 @@ FROM java:openjdk-8-jre
 
 ENV HZ_VERSION 3.8
 ENV HZ_HOME /opt/hazelcast/
+ENV CONFD_VERSION 0.11.0
 
 RUN mkdir -p $HZ_HOME
 WORKDIR $HZ_HOME
@@ -13,7 +14,7 @@ ADD stop.sh /$HZ_HOME/stop.sh
 RUN chmod +x /$HZ_HOME/server.sh /$HZ_HOME/stop.sh
 
 # Download confd to generate Hazelcast join configuration
-ADD https://github.com/kelseyhightower/confd/releases/download/v0.10.0/confd-0.10.0-linux-amd64 /usr/local/bin/confd
+ADD https://github.com/kelseyhightower/confd/releases/download/v$CONFD_VERSION/confd-$CONFD_VERSION-linux-amd64 /usr/local/bin/confd
 RUN chmod +x /usr/local/bin/confd
 
 # Start hazelcast standalone server.
