@@ -7,6 +7,8 @@ ENV CONFD_VERSION 0.11.0
 RUN mkdir -p $HZ_HOME
 WORKDIR $HZ_HOME
 
+RUN apt-get update && apt-get install vim
+
 # Download hazelcast jars from maven repo.
 ADD https://repo1.maven.org/maven2/com/hazelcast/hazelcast-all/$HZ_VERSION/hazelcast-all-$HZ_VERSION.jar $HZ_HOME
 ADD server.sh /$HZ_HOME/server.sh
@@ -20,5 +22,5 @@ RUN chmod +x /usr/local/bin/confd \
 COPY /etc /etc
 
 # Start hazelcast standalone server.
-CMD ["./server.sh"]
+CMD ["bash"]
 EXPOSE 5701
