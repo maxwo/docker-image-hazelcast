@@ -3,5 +3,6 @@ src = "hazelcast.xml.tmpl"
 dest = "/etc/hazelcast/hazelcast.xml"
 prefix = "/2016-07-29"
 keys = [
-    "/self/service/containers",
+  "/self/service/containers",
+  "/containers",
 ]

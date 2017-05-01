@@ -43,9 +43,10 @@
                 <multicast-port>54327</multicast-port>
             </multicast>
             <tcp-ip enabled="true">
-                {{range gets "/self/service/containers/*"}}
-                <member>{{.Value}}</member>
-                {{end}}
+              {{range ls "/self/service/containers"}}
+                {{ $containerName := getv (printf "/self/service/containers/%s" .)}}
+                <member>{{getv (printf "/containers/%s/primary_ip" $containerName)}}</member>
+              {{end}}
             </tcp-ip>
             <aws enabled="false">
                 <access-key>my-access-key</access-key>
