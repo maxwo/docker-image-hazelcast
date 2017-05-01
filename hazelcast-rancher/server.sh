@@ -20,7 +20,7 @@ if [ "x$MAX_HEAP_SIZE" != "x" ]; then
 	JAVA_OPTS="$JAVA_OPTS -Xmx${MAX_HEAP_SIZE}"
 fi
 
-JAVA_OPTS="$JAVA_OPTS"
+JAVA_OPTS="$JAVA_OPTS -Dhazelcast.config=/etc/hazelcast/hazelcast.xml"
 
 echo "########################################"
 echo "# generating config files now...."
