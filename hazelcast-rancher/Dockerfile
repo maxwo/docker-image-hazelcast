@@ -7,7 +7,7 @@ ENV CONFD_VERSION 0.11.0
 RUN mkdir -p $HZ_HOME
 WORKDIR $HZ_HOME
 
-RUN apt-get update && apt-get install vim
+RUN apt-get update && apt-get install -y vim
 
 # Download hazelcast jars from maven repo.
 ADD https://repo1.maven.org/maven2/com/hazelcast/hazelcast-all/$HZ_VERSION/hazelcast-all-$HZ_VERSION.jar $HZ_HOME
