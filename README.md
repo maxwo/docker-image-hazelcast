@@ -1,2 +1,2 @@
-# docker-image-hazelcast
-Hazelcast docker image ready for Rancher.
+# docker-library
+Various Docker images.
