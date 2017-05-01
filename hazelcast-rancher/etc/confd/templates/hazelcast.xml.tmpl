@@ -43,7 +43,9 @@
                 <multicast-port>54327</multicast-port>
             </multicast>
             <tcp-ip enabled="true">
-              
+              {{range ls "/self/service/containers"}}
+                <member>{{ . }}</member>
+              {{end}}
             </tcp-ip>
             <aws enabled="false">
                 <access-key>my-access-key</access-key>
