@@ -13,9 +13,10 @@ ADD server.sh /$HZ_HOME/server.sh
 ADD stop.sh /$HZ_HOME/stop.sh
 RUN chmod +x /$HZ_HOME/server.sh /$HZ_HOME/stop.sh
 
-# Download confd to generate Hazelcast join configuration
+# Download confd to generate Hazelcast join members configuration
 ADD https://github.com/kelseyhightower/confd/releases/download/v$CONFD_VERSION/confd-$CONFD_VERSION-linux-amd64 /usr/local/bin/confd
 RUN chmod +x /usr/local/bin/confd
+COPY /etc/confd /etc
 
 # Start hazelcast standalone server.
 CMD ["./server.sh"]
