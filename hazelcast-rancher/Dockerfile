@@ -22,5 +22,5 @@ RUN chmod +x /usr/local/bin/confd \
 COPY /etc /etc
 
 # Start hazelcast standalone server.
-CMD ["bash"]
+CMD ["./server.sh"]
 EXPOSE 5701
