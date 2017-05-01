@@ -20,6 +20,13 @@ if [ "x$MAX_HEAP_SIZE" != "x" ]; then
 	JAVA_OPTS="$JAVA_OPTS -Xmx${MAX_HEAP_SIZE}"
 fi
 
+JAVA_OPTS="$JAVA_OPTS -Dhazelcast.config=/etc/hazelcast/hazelcast.xml"
+
+echo "########################################"
+echo "# generating config files now...."
+echo "########################################"
+confd -onetime -backend rancher
+
 # if we receive SIGTERM (from docker stop) or SIGINT (ctrl+c if not running as daemon)
 # trap the signal and delegate to sigterm_handler function, which will notify hazelcast instance process
 trap sigterm_handler SIGTERM SIGINT
